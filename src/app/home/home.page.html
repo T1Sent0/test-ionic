@@ -1,0 +1,25 @@
+  <ion-header [translucent]="true" *ngIf="!loading">
+  <ion-toolbar>
+    <ion-title>Start Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="!loading">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let item of mockDataList" class="ion-activated" (click)="openListItem(item)">
+    <ion-item href="javascript:void">
+      <ion-icon name="bookmark-outline"></ion-icon>
+      <ion-label>{{item.title}}</ion-label>
+    </ion-item>
+    <ion-card-content>{{ item.description }}</ion-card-content>
+  </ion-card>
+</ion-content>
+<div class="flex">
+  <ion-spinner *ngIf="loading" class="big" name="lines-small"></ion-spinner>
+</div>
+
